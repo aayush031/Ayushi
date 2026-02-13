@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Be My Valentine 💕</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: "Poppins", Arial, sans-serif;
+            background: linear-gradient(135deg, #ffd6e0, #ffe9f0);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 30px 25px;
+            border-radius: 25px;
+            width: 320px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+
+        .card img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            font-size: 26px;
+            color: #ff4d6d;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .buttons {
+            position: relative;
+            height: 80px;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 10px 22px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        #yes {
+            background: #ff4d6d;
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+        }
+
+        #yes:hover {
+            transform: scale(1.08);
+        }
+
+        #no {
+            background: #f1f1f1;
+            color: #555;
+            position: absolute;
+            left: 180px;
+            top: 0;
+            transition: transform 0.15s ease-out;
+            /* faster + smooth */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <!-- Add your image here -->
+        <img src="ayushi.jpeg" alt="Cute Image">
+
+        <h1>Hey Love 💕</h1>
+        <p>
+            From my heart to this screen...<br>
+            Will you be my Valentine?
+        </p>
+
+        <div class="buttons">
+            <button id="yes" onclick="sayYes()">Yes 💖</button>
+            <button id="no" onmouseenter="moveNo()">No 😛</button>
+        </div>
+    </div>
+
+    <script>
+        function sayYes() {
+            document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          display:flex;
+          flex-direction:column;
+          justify-content:center;
+          align-items:center;
+          background:linear-gradient(135deg, #ffd6e0, #ffe9f0);
+          font-family:Poppins, Arial;
+          text-align:center;">
+          
+          <h1 style="color:#ff4d6d; font-size:40px;">Baby💖</h1>
+          <p style="font-size:20px; color:#555;">
+           you mean everything to me, and I love you endlessly 💞
+          </p>
+        </div>
+      `;
+        }
+        function moveNo() {
+            const button = document.getElementById("no");
+            const parent = document.querySelector(".buttons");
+
+            const maxX = parent.clientWidth - button.offsetWidth;
+            const maxY = parent.clientHeight - button.offsetHeight;
+
+            const x = Math.random() * maxX;
+            const y = Math.random() * maxY;
+
+            button.style.transform = `translate(${x}px, ${y}px)`;
+        }
+    </script>
+
+</body>
+
+</html>
